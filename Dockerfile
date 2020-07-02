@@ -37,7 +37,7 @@ RUN apt-get update && apt-get install -y \
     libgdal-dev \
     libproj-dev \
     libgsl-dev \
-    libgsl2
+    libgslcblas0
 
 
 RUN install2.r --error \
