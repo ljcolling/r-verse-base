@@ -32,6 +32,14 @@ RUN apt-get update \
     sudo \
     wget
 
+# Install linux pacakges for gsl 
+RUN apt-get update && apt-get install -y \
+    libgdal-dev \
+    libproj-dev \
+    libgsl-dev \
+    libgsl2
+
+
 RUN install2.r --error \
     --deps TRUE \
     tidyverse \
