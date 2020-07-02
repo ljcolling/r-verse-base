@@ -34,6 +34,8 @@ RUN apt-get update \
 
 # Install linux pacakges for gsl 
 RUN apt-get update && apt-get install -y \
+    default-libmysqlclient-dev \
+    libmysqlclient-dev \
     libgdal-dev \
     libproj-dev \
     libgsl-dev \
