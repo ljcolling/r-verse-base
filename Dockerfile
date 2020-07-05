@@ -1,5 +1,23 @@
-FROM rocker/r-ver:4.0.0
+FROM ubuntu:20.04
 
+LABEL org.label-schema.license="MIT" \
+    org.label-schema.vcs-url="https://github.com/ljcolling/r-verse-base" \
+    maintainer="Lincoln J Colling"
+
+ENV R_VERSION=4.0.0
+ENV TERM=xterm
+ENV LC_ALL=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV R_HOME=/usr/local/lib/R
+ENV CRAN=https://mran.microsoft.com/snapshot/2020-06-06
+ENV TZ=UTC
+
+COPY scripts /rocker_scripts
+
+RUN /rocker_scripts/install_R.sh
+
+
+CMD ["R"]
 
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     libxml2-dev \
